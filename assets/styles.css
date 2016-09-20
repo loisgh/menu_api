@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Rabelo Regular';
+    src: url('Rabelo Regular.otf');
+    src: url('Rabelo Regular.ttf');
+    url('mywebfont.ttf') format('truetype'), /* Safari, Android, iOS */  }
+
+body {
+    background-color: white;
+    padding: 2%;}
+
+li {
+    color: #1F1F1F;
+    font-family: "Rabelo Regular"}
+
+h2 {
+    color: #1F1F1F;
+    font-family: "Rabelo Regular"}
+
+h4 {
+    color: #1F1F1F;
+    font-family: "Rabelo Regular"}
+
+div {
+    color: #1F1F1F;
+    line-height: 120%;
+    font-family: "Rabelo Regular"}
