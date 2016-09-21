@@ -10,5 +10,6 @@ gem 'pg'
 
 group :development do
   gem "tux"
+  gem 'pry-nav'
 end
 
