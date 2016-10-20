@@ -1,0 +1,6 @@
+Tux is the console for this sinatra app.
+To run the app itself you can run ruby app.rb
+If you are running this on localhost you can use port 4567
+If you run using rackup than use port 9292
+add $stdout.sync = true to config.ru to write debug statements to the console logs.
+curl --data 'descr=test&name=test&m_type=test&price=1.00' "http://localhost:4567/add/menu_item"

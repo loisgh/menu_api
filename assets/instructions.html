@@ -16,7 +16,22 @@
         <li><u>Id</u></li>
     </ol>
     <div>Searching is open to the world, but updating requires an auth key.</div>
-    <div>Coming soon: instructions on how to get an auth key</div>
+    <div>
+        If you wish to update this database, you must use an api key.  You can request a key by contacting me @ loisgh@gmail.com
+        <div>
+            An add request looks as follows
+            curl --data 'descr=test&name=test&m_type=test&price=1.007&access_token=yourkeyhere' "http://localhost:4567/add/menu_item"
+        </div>
+        <div>
+            A delete request looks as follows
+            curl --data 'access_token=yourkeyhere' "http://localhost:4567/remove/:id/delete"
+        </div>
+        <div>
+            An update request looks as follows
+            curl --data 'descr=test&name=test&m_type=test&price=1.007&access_token=yourkeyhere' "http://localhost:4567/update/:id"
+        </div>
+
+    </div>
 </div>
 
 </body>

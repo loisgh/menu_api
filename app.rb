@@ -1,10 +1,15 @@
-# app.rb
-
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
 require 'json'
 require 'pry'
+
+
+['/add/menu_item','/update/:id', '/remove/:id/delete'].each do |path|
+  before path do
+    halt 401 if ApiKey.restrict_access(params[:access_token]) == false
+  end
+end
 
 
 class MenuItem < ActiveRecord::Base
@@ -17,6 +22,25 @@ class MenuItem < ActiveRecord::Base
   validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0}
 
 end
+
+class ApiKey < ActiveRecord::Base
+  before_create :generate_access_token
+
+  private
+
+  def self.restrict_access(token)
+    ApiKey.where(access_token: token).size == 1 ? true : false
+  end
+
+  def generate_access_token
+    begin
+      self.access_token = SecureRandom.hex
+      while self.class.exists?(access_token: access_token)
+      end
+    end
+  end
+end
+
 
 helpers do
   def get_input_params(params)
@@ -125,6 +149,7 @@ end
 get "/Rabelo Regular.ttf" do
   send_file './assets/Rabelo Regular.ttf'
 end
+
 
 
 
